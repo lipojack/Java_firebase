@@ -6,14 +6,14 @@ for k in range(5):
 
 	for i in range(100):
 		sleep(0.1)
-		with open('output_face.json','r') as readjson:
+		with open('output_gesture.json','r') as readjson:
 		    data = json.load(readjson)
 		    #data = {"type":"gesture", "value":i}
-		    data["value"] = random.randrange(1,7)
+		    data["value"] = random.randrange(1,10)
 		    #sleep(5)
 		    print (data)
 		    readjson.close()
-		    with open('output_face.json', 'w') as writejson:
+		    with open('output_gesture.json', 'w') as writejson:
 		    	json.dump(data, writejson)
 
 	for i in range(20):

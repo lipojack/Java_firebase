@@ -101,8 +101,17 @@ public class SocketSever {
 				if (counter_gesture > 9) {
 					value_gesture = mode(buffer_gesture);
 					System.out.println("Gesture : " + value_gesture);
-
-					gestureRef.setValue(value_gesture);
+					switch(value_gesture){
+						case 1:
+							gestureRef.setValue("up");
+							break;
+						case 9:
+							gestureRef.setValue("down");
+							break;
+						default:
+							gestureRef.setValue("");
+							break;
+					}
 					/*
 					// determine sent
 					if (value_gesture == 1 && sent == false) {
@@ -143,7 +152,17 @@ public class SocketSever {
 					value_gaze = mode(buffer_gaze);
 					System.out.println("Gaze : " + value_gaze);
 					// update firebase gaze value
-					gazeRef.setValue(value_gaze);
+					switch(value_gaze){
+						case 0:
+							gazeRef.setValue(true);
+							break;
+						case 1:
+							gazeRef.setValue(false);
+							break;
+						default:
+							break;
+					}
+
 					/*
 					// send
 					if (value_gaze != value_gaze_pre) {
